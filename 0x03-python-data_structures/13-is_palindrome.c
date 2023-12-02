@@ -8,10 +8,10 @@
  */
 int is_palindrome(listint_t **head)
 {
+	listint_t *end = *head;
+
 	if (head == NULL || *head == NULL)
 		return (1);
-
-	listint_t *end = *head;
 
 	return (aux_palindrome(head, end));
 }
