@@ -111,4 +111,4 @@ class Rectangle:
         Args:
             size(int): size of the Rectangle
         """
-        return Rectangle(size,size)
+        return (Rectangle(size,size))
