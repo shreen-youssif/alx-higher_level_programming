@@ -78,6 +78,15 @@ class Rectangle:
             return (rect_1)
         return (rect_2)
 
+    @classmethod
+    def square(cls, size=0):
+        """Return a new Rectangle with width and height equal to size.
+
+        Args:
+            size (int): The width and height of the new Rectangle.
+        """
+        return (cls(size, size))
+
     def __str__(self):
         """Return the printable representation of the Rectangle.
 
@@ -103,12 +112,3 @@ class Rectangle:
         """Print a message for every deletion of a Rectangle."""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
-    
-    @classmethod
-    def square(cls, size=0):
-        """Return a new Rectangle with width and height = size
-
-        Args:
-            size (int):The width and height of the new Rectangle
-        """
-        return (cls(size,size))
