@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Solves the N-queens puzzle.
+"""Solves the N-queens puzzle.
 
 Determines all possible solutions to placing N
 non-attacking queens on an NxN chessboard.
@@ -18,16 +17,19 @@ queen must be placed on the chessboard.
 
 import sys
 
+
 def initialize_chessboard(n):
     """Initialize an `n`x`n` sized chessboard with empty spaces."""
     board = [[' ' for _ in range(n)] for _ in range(n)]
-    return board
+    return (board)
+
 
 def deepcopy_chessboard(chessboard):
     """Return a deepcopy of a chessboard."""
     if isinstance(chessboard, list):
         return list(map(deepcopy_chessboard, chessboard))
-    return chessboard
+    return (chessboard)
+
 
 def get_queen_positions(chessboard):
     """Return the list of lists representation of a solved chessboard."""
@@ -37,7 +39,8 @@ def get_queen_positions(chessboard):
             if chessboard[row][col] == "Q":
                 positions.append([row, col])
                 break
-    return positions
+    return (positions)
+
 
 def mark_attacked_spots(chessboard, row, col):
     """Mark out spots on a chessboard where non-attacking queens can no longer be placed."""
@@ -74,11 +77,12 @@ def mark_attacked_spots(chessboard, row, col):
         chessboard[r][c] = "x"
         c -= 1
 
+
 def recursive_solve(chessboard, row, queens, solutions):
     """Recursively solve an N-queens puzzle."""
     if queens == len(chessboard):
         solutions.append(get_queen_positions(chessboard))
-        return solutions
+        return (solutions)
 
     for col in range(len(chessboard)):
         if chessboard[row][col] == " ":
@@ -87,7 +91,7 @@ def recursive_solve(chessboard, row, queens, solutions):
             mark_attacked_spots(temp_board, row, col)
             solutions = recursive_solve(temp_board, row + 1, queens + 1, solutions)
 
-    return solutions
+    return (solutions)
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
