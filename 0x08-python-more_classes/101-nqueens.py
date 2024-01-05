@@ -43,7 +43,8 @@ def get_queen_positions(chessboard):
 
 
 def mark_attacked_spots(chessboard, row, col):
-    """Mark out spots on a chessboard where non-attacking queens can no longer be placed."""
+    """Mark out spots on a chessboard where non-attacking
+    queens can no longer be placed."""
     for c in range(col + 1, len(chessboard)):
         chessboard[row][c] = "x"
     for c in range(col - 1, -1, -1):
@@ -89,9 +90,10 @@ def recursive_solve(chessboard, row, queens, solutions):
             temp_board = deepcopy_chessboard(chessboard)
             temp_board[row][col] = "Q"
             mark_attacked_spots(temp_board, row, col)
-            solutions = recursive_solve(temp_board, row + 1, queens + 1, solutions)
+            solutions =recursive_solve(temp_board,row+1,queens + 1, solutions)
 
     return (solutions)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
