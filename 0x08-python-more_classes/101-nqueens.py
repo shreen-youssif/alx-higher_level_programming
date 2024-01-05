@@ -79,20 +79,19 @@ def mark_attacked_spots(chessboard, row, col):
         c -= 1
 
 
-def recursive_solve(chessboard, row, queens, solutions):
+def recursive_solve(chessboard, row, queens, sols):
     """Recursively solve an N-queens puzzle."""
     if queens == len(chessboard):
         solutions.append(get_queen_positions(chessboard))
-        return (solutions)
+        return (sols)
 
     for col in range(len(chessboard)):
         if chessboard[row][col] == " ":
             temp_board = deepcopy_chessboard(chessboard)
             temp_board[row][col] = "Q"
             mark_attacked_spots(temp_board, row, col)
-            solutions =recursive_solve(temp_board,row+1,queens + 1, solutions)
-
-    return (solutions)
+            sols = recursive_solve(temp_board, row + 1, queens + 1, sols)
+    return (sols)
 
 
 if __name__ == "__main__":
