@@ -1,0 +1,20 @@
+"""
+    Test the print_sorted method of MyList class
+    >>> l = MyList([4, 2, 8, 1])
+    >>> with redirect_stdout(StringIO()) as output:
+    ...     l.print_sorted()
+    >>> output.getvalue().strip()
+    '[1, 2, 4, 8]'
+
+    >>> l = MyList([10, 7, 2, 4])
+    >>> with redirect_stdout(StringIO()) as output:
+    ...     l.print_sorted()
+    >>> output.getvalue().strip()
+    '[2, 4, 7, 10]'
+
+    >>> l = MyList([-5, 9, 4, 7])
+    >>> with redirect_stdout(StringIO()) as output:
+    ...     l.print_sorted()
+    >>> output.getvalue().strip()
+    '[-5, 4, 7, 9]'
+    """
