@@ -5,9 +5,9 @@
 def add_attribute(obj, attr, value):
     """
     addition of not previous present attribute
-    :param obj: the Object to add attribute to
-    :param attr: what we call this attribute
-    :param value: the value of this attribute
+    :param obj(any): the Object to add attribute to
+    :param attr(str): what we call this attribute
+    :param value(any): the value of this attribute
 
     :raises:
     TypeError: if this attribute already present
