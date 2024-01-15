@@ -73,8 +73,8 @@ class Rectangle(Base):
             (' ' * self.x + '#' * self.width + '\n') * self.height
         print(s, end='')
 
-     def __str__(self):
+    def __str__(self):
         '''Informal string represnetation of rectangle'''
         return '[{}] ({}) {}/{} - {}/{}'.\
             format(type(self).__name__, self.id, self.x, self.y, self.width,
-                   self.height)
+                    self.height)
