@@ -38,3 +38,17 @@ class Base:
         if json_string is None or not json_string:
             return []
         return loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        '''create copy of bject similar to the original one'''
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls is Rectangle:
+            dummy = Rectangle(5, 5)
+        elif cls is Square:
+            dummy = Square(5)
+        else:
+            dummy = None
+        dummy.update(**dictionary)
+        return dummy
