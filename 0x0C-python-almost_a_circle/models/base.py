@@ -113,7 +113,7 @@ class Base:
             draw.pensize(1)
             draw.penup()
             draw.pendown()
-            draw.setpos((i.x + t.pos()[0], i.y - t.pos()[1]))
+            draw.setpos((i.x + draw.pos()[0], i.y - draw.pos()[1]))
             draw.pensize(14)
             draw.forward(i.width)
             draw.left(90)
