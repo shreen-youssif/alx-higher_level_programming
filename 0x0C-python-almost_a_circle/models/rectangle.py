@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/uisr/bin/python3
 '''Module for Rectangle class.'''
 from models.base import Base
 
@@ -21,7 +21,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        validation("width", value, False)
+        self.validation("width", value, False)
         self.__width = value
 
     @property
@@ -31,7 +31,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        validation("height", value, False)
+        self.validation("height", value, False)
         self.__height = value
 
     @property
@@ -41,7 +41,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        validation("x", value)
+        self.validation("x", value)
         self.__x = value
 
     @property
@@ -51,7 +51,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        validation("y", value)
+        self.validation("y", value)
         self.__y = value
 
     def validation(self, name, value, eq=True):
