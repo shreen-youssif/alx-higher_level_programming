@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Basic class Base"""
 from json import dumps, loads
-
+import csv
 
 class Base:
     """the base class for all other classes called Base"""
