@@ -77,3 +77,24 @@ class Rectangle(Base):
         '''Informal string represnetation of rectangle'''
         return '[Rectangle] ({}) {}/{} - {}/{}'.\
             format(self.id, self.x, self.y, self.width, self.height)
+
+    def __modify(self, id=None, width=None, height=None, x=None, y=None):
+        '''modify the rectangle attributes'''
+        if id is not None:
+            self.id = id
+        if width is not None:
+            self.width = width
+        if height is not None:
+            self.height = height
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
+
+    def update(self, *args, **kwargs):
+        '''update rectangle attributes by args and keywords'''
+        # print(args, kwargs)
+        if args:
+            self.__modify(*args)
+        elif kwargs:
+            self.__modify(**kwargs)
