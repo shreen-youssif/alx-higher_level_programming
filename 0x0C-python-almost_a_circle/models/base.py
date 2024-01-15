@@ -3,9 +3,9 @@
 from json import dumps, loads
 import csv
 
+
 class Base:
-    class Base:
-    '''A representation of the base of our OOP hierarchy.'''
+    '''Base class all other classes inherits from it'''
 
     __nb_objects = 0
 
