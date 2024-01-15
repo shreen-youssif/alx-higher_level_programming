@@ -98,3 +98,8 @@ class Rectangle(Base):
             self.__modify(*args)
         elif kwargs:
             self.__modify(**kwargs)
+
+    def to_dictionary(self):
+        '''disply rectangle info as dictionary'''
+        return {"id": self.id, "width": self.__width, "height": self.__height,
+                "x": self.__x, "y": self.__y}
