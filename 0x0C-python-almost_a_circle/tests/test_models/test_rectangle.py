@@ -148,3 +148,67 @@ given"
         self.assertEqual(r.height, 101)
         self.assertEqual(r.x, 102)
         self.assertEqual(r.y, 103)
+
+    def invalid_types(self):
+        '''Returns tuple of types for validation.'''
+        t = (3.14, -1.1, float('inf'), float('-inf'), True, "str", (2,),
+             [4], {5}, {6: 7}, None)
+        return t
+
+    def test_G_validate_type(self):
+        '''Tests property validation.'''
+        r = Rectangle(1, 2)
+        attributes = ["x", "y", "width", "height"]
+        for attribute in attributes:
+            s = "{} must be an integer".format(attribute)
+            for invalid_type in self.invalid_types():
+                with self.assertRaises(TypeError) as e:
+                    setattr(r, attribute, invalid_type)
+                self.assertEqual(str(e.exception), s)
+
+    def test_G_validate_value_negative_gt(self):
+        '''Tests property validation.'''
+        r = Rectangle(1, 2)
+        attributes = ["width", "height"]
+        for attribute in attributes:
+            s = "{} must be > 0".format(attribute)
+            with self.assertRaises(ValueError) as e:
+                setattr(r, attribute, -(randrange(10) + 1))
+            self.assertEqual(str(e.exception), s)
+
+    def test_G_validate_value_negative_ge(self):
+        '''Tests property validation.'''
+        r = Rectangle(1, 2)
+        attributes = ["x", "y"]
+        for attribute in attributes:
+            s = "{} must be >= 0".format(attribute)
+            with self.assertRaises(ValueError) as e:
+                setattr(r, attribute, -(randrange(10) + 1))
+            self.assertEqual(str(e.exception), s)
+
+    def test_G_validate_value_zero(self):
+        '''Tests property validation.'''
+        r = Rectangle(1, 2)
+        attributes = ["width", "height"]
+        for attribute in attributes:
+            s = "{} must be > 0".format(attribute)
+            with self.assertRaises(ValueError) as e:
+                setattr(r, attribute, 0)
+            self.assertEqual(str(e.exception), s)
+
+    def test_H_property(self):
+        '''Tests property setting/getting.'''
+        r = Rectangle(1, 2)
+        attributes = ["x", "y", "width", "height"]
+        for attribute in attributes:
+            n = randrange(10) + 1
+            setattr(r, attribute, n)
+            self.assertEqual(getattr(r, attribute), n)
+
+    def test_H_property_range_zero(self):
+        '''Tests property setting/getting.'''
+        r = Rectangle(1, 2)
+        r.x = 0
+        r.y = 0
+        self.assertEqual(r.x, 0)
+        self.assertEqual(r.y, 0)
