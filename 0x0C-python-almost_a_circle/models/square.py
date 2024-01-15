@@ -42,3 +42,8 @@ class Square(Rectangle):
             self.__modify(*args)
         elif kwargs:
             self.__modify(**kwargs)
+
+    def to_dictionary(self):
+        '''display the square info as dictionary'''
+        return {"id": self.id, "size": self.width,
+                "x": self.x, "y": self.y}
