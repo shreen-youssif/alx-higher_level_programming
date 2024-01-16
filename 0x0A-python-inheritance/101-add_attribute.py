@@ -12,7 +12,6 @@ def add_attribute(obj, attr, value):
     :raises:
     TypeError: if this attribute already present
     """
-    if not hasattr(obj, attr):
-        setattr(obj, attr, value)
-    else:
+    if not hasattr(obj, "__dict__"):
         raise TypeError("can't add new attribute")
+    setattr(obj, att, value)
